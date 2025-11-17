@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 30 25% 95%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 20 40% 67%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 30 15% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 20 40% 67%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: 20 40% 67%;
+
+    --radius: 0.5rem;
+
+    /* Custom AlunaInfinity colors */
+    --boutique-rose: 20 40% 67%;
+    --boutique-cream: 30 25% 95%;
+    --boutique-black: 0 0% 0%;
+    --boutique-white: 0 0% 100%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(30 25% 95%), hsl(20 40% 85%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(30 25% 95%));
+
+    /* Shadows */
+    --shadow-elegant: 0 4px 20px -2px hsl(0 0% 0% / 0.08);
+    --shadow-card: 0 2px 12px -2px hsl(0 0% 0% / 0.05);
+    --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.03);
+    --shadow-medium: 0 4px 30px rgba(0, 0, 0, 0.06);
+    --shadow-luxury: 0 8px 40px rgba(196, 160, 146, 0.15);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 15%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 20 40% 67%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 20 40% 67%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 20 40% 67%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-luxury);
+  }
+
+  .hover-scale {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+
+  .image-parallax {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .image-parallax:hover {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
